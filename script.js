@@ -51,6 +51,11 @@ function updateTableScrollHint() {
 }
 function showTable(key) {
   const data = datasets[key];
+  const bestValues = data.headers.slice(3).map((_, offset) => {
+    const column = offset + 3;
+    const values = data.rows.map(row => Number(row[column]));
+    return data.higher.includes(column) ? Math.max(...values) : Math.min(...values);
+  });
   document.getElementById('table-description').textContent = data.description;
   document.getElementById('table-note').textContent = data.note;
   document.getElementById('results-panel').setAttribute('aria-labelledby', 'tab-' + key);
@@ -74,9 +79,11 @@ function showTable(key) {
       const td = tr.insertCell();
       const text = i >= 3 && key === 'closed' ? Number(value).toFixed(3) : value;
       if (i >= 3) {
-        const metric = document.createElement('span');
-        metric.className = 'metric-value';
+        const isBest = Number(value) === bestValues[i - 3];
+        const metric = document.createElement(isBest ? 'strong' : 'span');
+        metric.className = `metric-value${isBest ? ' is-best' : ''}`;
         metric.textContent = text;
+        if (isBest) metric.setAttribute('aria-label', `${text}; best`);
         td.append(metric);
       } else td.textContent = text;
     });

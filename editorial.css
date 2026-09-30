@@ -50,6 +50,7 @@
 #performance-table tr.ours td { background:#f7f9f2; border-top:1px solid #c6d5b2; color:var(--ink); font-weight:450; }
 #performance-table tr.ours td:first-child { font-weight:700; border-left:3px solid var(--green); }
 .metric-value { display:inline-block; min-width:52px; padding:4px 5px; border-radius:4px; font-variant-numeric:tabular-nums; line-height:1.25; }
+.metric-value.is-best { font-weight:750; }
 .evaluation-details { border-bottom:1px solid #e2e5dd; margin-top:5px; }
 .evaluation-details summary { display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:15px 0; color:#697063; font-size:12px; list-style:none; }
 .evaluation-details summary::-webkit-details-marker { display:none; }

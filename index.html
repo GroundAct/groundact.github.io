@@ -4,11 +4,11 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#151619">
 <meta name="description" content="GroundAct: preserving the physical connection from grounded reasoning to action generation in autonomous driving.">
 <title>GroundAct — Grounding What Shapes The Plan</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme-neutral.css?v=20260930-copy"><link rel="stylesheet" href="physical-flow.css?v=20260930-copy"><script src="script.js?v=20260930-best" defer></script><script src="motion.js" defer></script><link rel="stylesheet" href="editorial.css?v=20260930-best"><script src="physical-flow.js?v=20260930-clean" defer></script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme-neutral.css?v=20260930-copy"><link rel="stylesheet" href="physical-flow.css?v=20260930-copy"><script src="script.js?v=20260930-best" defer></script><script src="motion.js" defer></script><link rel="stylesheet" href="editorial.css?v=20260930-paper-unlinked"><script src="physical-flow.js?v=20260930-clean" defer></script>
 </head>
 <body>
 <a class="skip" href="#overview">Skip to content</a>
-<header class="nav-wrap"><nav class="nav container" aria-label="Main navigation"><a href="#top" class="brand" aria-label="GroundAct home"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true">Ground<span>Act</span></a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a></div><a class="nav-paper" href="assets/groundact.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav></header>
+<header class="nav-wrap"><nav class="nav container" aria-label="Main navigation"><a href="#top" class="brand" aria-label="GroundAct home"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true">Ground<span>Act</span></a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a></div><button type="button" class="nav-paper" disabled>Paper</button></nav></header>
 <main id="top">
 <section class="hero"><div class="container hero-content">
 <div class="eyebrow"><span class="green-dot"></span> PHYSICAL AI &nbsp;/&nbsp; AUTONOMOUS DRIVING</div>
@@ -18,7 +18,7 @@
 <section class="authors-section" aria-label="Authors and resources"><div class="container authors-inner"><div class="authors"><span>Minkyoung Cho<sup>1,†</sup></span><span>Zewei Zhou<sup>2</sup></span><span>Wenhao Ding<sup>3</sup></span><span>Shuhan Tan<sup>3</sup></span><span>Boyi Li<sup>3</sup></span><span>Yuxiao Chen<sup>3</sup></span><span>Yan Wang<sup>3</sup></span><span>Zheng Lian<sup>3</sup></span><span>Min-Hung Chen<sup>3</sup></span><span class="author-row-break" aria-hidden="true"></span><span>Chaowei Xiao<sup>3,4</sup></span><span>Z. Morley Mao<sup>5</sup></span><span>Boris Ivanovic<sup>3</sup></span><span>Marco Pavone<sup>3,6</sup></span><span>Yulong Cao<sup>3</sup></span></div>
 <div class="affiliations"><span><sup>1</sup>UMich</span><span><sup>2</sup>UCLA</span><span class="nvidia"><sup>3</sup>NVIDIA</span><span><sup>4</sup>JHU</span><span><sup>5</sup>USC</span><span><sup>6</sup>Stanford</span></div>
 <p class="author-note">† Work done during an internship at NVIDIA.</p>
-<div class="resource-links"><a href="assets/groundact.pdf" class="button primary" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6l4 4v11H5zM11 2.5v4h4M8 10h4M8 13h4"/></svg>Read The Paper <span aria-hidden="true">↗</span></a><a href="#citation" class="button secondary">BibTeX <span aria-hidden="true">↗</span></a></div></div></section>
+<div class="resource-links"><button type="button" class="button primary" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6l4 4v11H5zM11 2.5v4h4M8 10h4M8 13h4"/></svg>Read The Paper</button><a href="#citation" class="button secondary">BibTeX <span aria-hidden="true">↗</span></a></div></div></section>
 <section class="flow-section container" id="physical-flow" aria-labelledby="flow-title">
   <div class="flow-heading">
     <div><p class="flow-principles"><span><strong>Entity</strong> As Grounding Unit</span><span aria-hidden="true">·</span><span><strong>Token-as-Reference</strong> As Grounding Mechanism</span></p><h2 id="flow-title">Make Grounding Consequential For Planning.</h2></div>
@@ -120,7 +120,7 @@
 </div>
 <p class="results-footnote">Each measure retains its own evaluation protocol; these are not a combined score.</p>
 </div></section>
-<section class="closing-section container"><div class="closing-line"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true"><p>Grounding should shape<br><strong>what the plan does.</strong></p><a class="button primary" href="assets/groundact.pdf" target="_blank" rel="noopener">Read The Full Paper ↗</a></div></section>
+<section class="closing-section container"><div class="closing-line"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true"><p>Grounding should shape<br><strong>what the plan does.</strong></p><button type="button" class="button primary" disabled>Read The Full Paper</button></div></section>
 <section id="citation" class="citation-section"><div class="container"><div class="citation-heading"><h2>BibTeX</h2><button id="copy-citation" class="copy-button">Copy Citation <span aria-hidden="true">⧉</span></button></div><pre><code id="citation-code">@misc{cho2026groundact,
   title  = {Grounding What Shapes the Plan: Rethinking Groundedness
             for Physical Intelligence in Autonomous Driving},

@@ -4,6 +4,14 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#151619">
 <meta name="description" content="GroundAct: preserving the physical connection from grounded reasoning to action generation in autonomous driving.">
 <title>GroundAct — Grounding What Shapes The Plan</title>
+<script>
+// Begin each page visit at the hero; in-page navigation still follows anchors.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+window.addEventListener('pageshow', () => {
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+});
+</script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme-neutral.css?v=20260930-copy"><link rel="stylesheet" href="physical-flow.css?v=20260930-copy"><script src="script.js?v=20260930-best" defer></script><script src="motion.js" defer></script><link rel="stylesheet" href="editorial.css?v=20260930-paper-unlinked"><script src="physical-flow.js?v=20260930-clean" defer></script>
 </head>
 <body>

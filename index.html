@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#151619">
+<meta name="description" content="GroundAct: preserving the physical connection from grounded reasoning to action generation in autonomous driving.">
+<title>GroundAct — Grounding What Shapes The Plan</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme-neutral.css?v=20260930-copy"><link rel="stylesheet" href="physical-flow.css?v=20260930-copy"><script src="script.js?v=20260930-tables" defer></script><script src="motion.js" defer></script><link rel="stylesheet" href="editorial.css?v=20260930-tables"><script src="physical-flow.js?v=20260930-clean" defer></script>
+</head>
+<body>
+<a class="skip" href="#overview">Skip to content</a>
+<header class="nav-wrap"><nav class="nav container" aria-label="Main navigation"><a href="#top" class="brand" aria-label="GroundAct home"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true">Ground<span>Act</span></a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a></div><a class="nav-paper" href="assets/groundact.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav></header>
+<main id="top">
+<section class="hero"><div class="container hero-content">
+<div class="eyebrow"><span class="green-dot"></span> PHYSICAL AI &nbsp;/&nbsp; AUTONOMOUS DRIVING</div>
+<div class="hero-wordmark" aria-hidden="true"><img class="hero-brand-mark" src="assets/brand-token-dark.svg" width="112" height="72" alt=""><span class="hero-name">GroundAct<span class="wordmark-period">.</span></span></div>
+<h1>Grounding What Shapes The Plan</h1><p class="paper-subtitle">Rethinking Groundedness for Physical Intelligence in Autonomous Driving</p>
+<p class="hero-summary">GroundAct preserves the physical connection from reasoning to planning.</p></div></section>
+<section class="authors-section" aria-label="Authors and resources"><div class="container authors-inner"><div class="authors"><span>Minkyoung Cho<sup>1,†</sup></span><span>Zewei Zhou<sup>2</sup></span><span>Wenhao Ding<sup>3</sup></span><span>Shuhan Tan<sup>3</sup></span><span>Boyi Li<sup>3</sup></span><span>Yuxiao Chen<sup>3</sup></span><span>Yan Wang<sup>3</sup></span><span>Zheng Lian<sup>3</sup></span><span>Min-Hung Chen<sup>3</sup></span><span class="author-row-break" aria-hidden="true"></span><span>Chaowei Xiao<sup>3,4</sup></span><span>Z. Morley Mao<sup>5</sup></span><span>Boris Ivanovic<sup>3</sup></span><span>Marco Pavone<sup>3,6</sup></span><span>Yulong Cao<sup>3</sup></span></div>
+<div class="affiliations"><span><sup>1</sup>UMich</span><span><sup>2</sup>UCLA</span><span class="nvidia"><sup>3</sup>NVIDIA</span><span><sup>4</sup>JHU</span><span><sup>5</sup>USC</span><span><sup>6</sup>Stanford</span></div>
+<p class="author-note">† Work done during an internship at NVIDIA.</p>
+<div class="resource-links"><a href="assets/groundact.pdf" class="button primary" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6l4 4v11H5zM11 2.5v4h4M8 10h4M8 13h4"/></svg>Read The Paper <span aria-hidden="true">↗</span></a><a href="#citation" class="button secondary">BibTeX <span aria-hidden="true">↗</span></a></div></div></section>
+<section class="flow-section container" id="physical-flow" aria-labelledby="flow-title">
+  <div class="flow-heading">
+    <div><p class="flow-principles"><span><strong>Entity</strong> As Grounding Unit</span><span aria-hidden="true">·</span><span><strong>Token-as-Reference</strong> As Grounding Mechanism</span></p><h2 id="flow-title">Make Grounding Consequential For Planning.</h2></div>
+    <span class="flow-schematic"><img src="assets/brand-token.svg" alt="" aria-hidden="true" width="42" height="27">Interactive Illustration</span>
+  </div>
+  <div class="physical-flow" data-flow>
+    <div class="flow-stage" data-flow-stage>
+      <svg class="flow-canvas" data-flow-canvas role="img" aria-labelledby="flow-canvas-title flow-canvas-desc"></svg>
+      <noscript><img class="flow-static" src="assets/physical-flow-static.svg" alt="The selected truck is encoded as M9. Reasoning emits reference 9; reasoning and planning read the same stored state. The truck forecast interacts with the ego proposal, triggering earlier slowing."></noscript>
+    </div>
+    <div class="flow-bottom">
+      <p class="flow-caption"><span data-flow-step>01</span><strong data-flow-caption>Start With The Physical Scene.</strong></p>
+      <div class="flow-controls">
+        <button type="button" class="flow-play" data-flow-play aria-label="Play method animation"><span data-flow-play-icon aria-hidden="true">▶</span></button>
+        <button type="button" class="flow-replay" data-flow-replay aria-label="Replay method animation">↺</button>
+        <input id="flow-timeline" type="range" min="0" max="26" step="0.02" value="0" aria-label="Method animation progress">
+        <output data-flow-time for="flow-timeline">0:00</output>
+      </div>
+    </div>
+    <p class="flow-footnote">Schematic. Dots mark equal future-time intervals; refinement updates the whole proposal.</p>
+    <div class="sr-only" data-flow-live role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="overview" class="section container">
+<div class="section-heading"><div class="eyebrow dark">01 / THE QUESTION</div><h2>Grounded Reasoning.<br><span class="muted-title">But Is The Plan Grounded?</span></h2><p>Grounded reasoning does not by itself ensure desirable driving outcomes.</p></div>
+<div class="motivation-grid">
+<figure class="figure-panel"><div class="figure-title"><span class="panel-index">a</span><h3>The Grounding-To-Plan Transfer Gap</h3></div><button class="zoomable" data-caption="The Grounding-To-Plan Transfer Gap" aria-label="Enlarge transfer-gap audit"><img src="assets/motivation_a.png" alt="Transfer-gap audit: Alpamayo 1.5 28.95 plus or minus 2.15 percent; SpanVLA 30.30 plus or minus 3.03 percent; FSDrive 40.35 plus or minus 7.02 percent; GroundAct 5.10 plus or minus 3.20 percent. These are range midpoints and half-ranges." loading="lazy"></button></figure>
+<figure class="figure-panel"><div class="figure-title"><span class="panel-index">b</span><h3>Same Reasoning. Different Actions Required.</h3></div><button class="zoomable" data-caption="Same Reasoning. Different Actions Required." aria-label="Enlarge turn-left example"><img src="assets/motivation_b.png" alt="Two schematic left turns: slow down near a leading car, or start slowly and accelerate after a crossing car passes" loading="lazy"></button></figure>
+</div><div class="question-band"><span>OUR CENTRAL QUESTION</span><p>What should groundedness mean when the output is an <em>action</em>?</p><a href="#interface" aria-label="Continue to the principle">↓</a></div>
+</section>
+<section id="interface" class="section soft-section"><div class="container">
+<div class="section-heading"><div class="eyebrow dark">02 / THE PRINCIPLE</div><h2>Keep The Physical Connection.</h2><p>Driving unfolds through physical entities and their interactions. GroundAct keeps the states of reasoning-selected entities accessible through action generation, so their interactions can shape the plan.</p></div>
+<figure class="wide-figure"><button class="zoomable" data-caption="Token-as-Content And Token-as-Reference" aria-label="Enlarge Token-as-Content and Token-as-Reference comparison"><img src="assets/token-as-reference.png" alt="Token-as-Content carries grounded information in tokens. Token-as-Reference points to continuous physical states preserved through planning." loading="lazy"></button></figure>
+<div class="principle-comparison" aria-label="Token interface comparison">
+  <article class="principle-panel principle-content" aria-labelledby="content-panel-title">
+    <p class="principle-label">Prior Interface</p>
+    <h3 id="content-panel-title">Token-as-Content</h3>
+    <ul>
+      <li>The token <em>carries</em> grounded information: causal statements, spatial representations, or predicted futures.</li>
+      <li>Planning is conditioned on this generated content.</li>
+      <li>The token itself does not provide an explicit address for retrieving the grounded physical state.</li>
+    </ul>
+  </article>
+  <article class="principle-panel principle-reference" aria-labelledby="reference-panel-title">
+    <p class="principle-label">GroundAct</p>
+    <h3 id="reference-panel-title">Token-as-Reference</h3>
+    <ul>
+      <li>Alongside generated content, reference tokens <em>point to</em> continuous entity states kept inside the model.</li>
+      <li>Reasoning selects the entities; subsequent reasoning and planning access the same states.</li>
+      <li>Their interactions with the evolving proposal guide the explicit plan-refinement pathway.</li>
+    </ul>
+  </article>
+</div>
+<details class="abstract"><summary><span>Read The Abstract</span><span class="expand-sign" aria-hidden="true">+</span></summary><p>Driving models increasingly ground reasoning in causal relations, spatial structure, perceptual evidence, and predicted futures. These advances make reasoning more faithful to the driving scene, but leave a fundamental question unresolved: what should groundedness mean when the model ultimately outputs an action? Correctly grounded reasoning does not, by itself, ensure desirable driving outcomes. We introduce GroundAct, which starts from a simple premise: driving unfolds through physical entities and their interactions. Entities therefore become the unit of grounding; a lightweight reference token keeps each selected entity’s continuous state addressable through symbolic reasoning; and only the referenced entities’ interactions with the evolving proposal correct the plan. The result is an explicit path from what reasoning grounds to what the plan does, which we call grounded planning. To assess its practical value, we evaluate GroundAct in both open- and closed-loop settings. GroundAct shows strong open-loop planning across normal, out-of-distribution, and safety-critical scenarios, with closed-loop results extending this evidence to driving in simulation.</p></details>
+</div></section>
+<section id="method" class="section container">
+<div class="section-heading"><div class="eyebrow dark">03 / THE METHOD</div><h2>The Representation Changes.<br><span class="muted-title">The Physical Referent Does Not.</span></h2><p>References resolve to continuous entity states shared by reasoning and planning. The action expert retains full scene context; the selected entities’ interactions guide an explicit refinement pathway.</p></div>
+<figure class="architecture-figure"><button class="zoomable" data-caption="GroundAct architecture. Reasoning and planning access the same selected entity states. The action expert retains full scene context; the explicit refinement pathway uses the referenced states and their interactions with the evolving proposal." aria-label="Enlarge GroundAct architecture"><img src="assets/method_overview.png" alt="GroundAct architecture with addressable physical states, reference-based reasoning, and reference-driven planning" loading="lazy"></button><figcaption><span>GroundAct Architecture</span><span>Click to enlarge ↗</span></figcaption></figure>
+</section>
+<section id="results" class="section results-section"><div class="container">
+<div class="section-heading"><div class="eyebrow dark">04 / THE EVIDENCE</div><h2>Grounding That Matters To Driving.</h2><p>Driving performance and tests of how grounding shapes the plan.</p></div>
+<div class="results-card">
+  <div class="results-header">
+    <h3>Driving Performance</h3>
+    <div class="result-tabs" role="tablist" aria-label="Evaluation benchmark"><button id="tab-closed" role="tab" aria-selected="true" aria-controls="results-panel" data-table="closed">Closed-Loop</button><button id="tab-normal" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-table="normal">Normal</button><button id="tab-safety" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-table="safety">Safety-Critical</button></div>
+  </div>
+  <div id="results-panel" role="tabpanel" aria-labelledby="tab-closed" tabindex="0">
+    <div class="table-context"><p id="table-description"></p><span class="metric-directions">↑ Higher Is Better &nbsp; ↓ Lower Is Better</span></div>
+    <p id="table-scroll-hint" class="table-scroll-hint" hidden>Scroll For All Metrics <span aria-hidden="true">→</span></p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Driving performance results; scroll horizontally for all metrics"><table id="performance-table"></table></div>
+    <p class="table-key">C: Continuous &nbsp;·&nbsp; D: Discrete &nbsp;·&nbsp; † Re-implemented on the shared backbone.</p>
+    <details class="evaluation-details"><summary>Evaluation Details <span aria-hidden="true">+</span></summary><p class="table-note" id="table-note"></p></details>
+  </div>
+</div>
+<div class="supporting-heading"><h3>Examining The Grounding Connection</h3><p>Referencing, alignment, and selective action consequences.</p></div>
+<div class="evidence-grid" aria-label="Evidence for the physical grounding connection">
+<article class="evidence-card">
+  <div class="evidence-kicker">Table 6 · Physical Grounding</div>
+  <h3>Spatial Referencing</h3><div class="evidence-value">42.44<span>F1@IoU</span></div>
+  <div class="metric-baseline">vs. <strong>40.09</strong> PETRv2</div>
+  <p>Geometry-aware referencing at BEV IoU ≥ 0.5.</p>
+</article>
+<article class="evidence-card">
+  <div class="evidence-kicker">Table 5 · Reasoning To Action</div>
+  <h3>Reasoning–Action Alignment</h3><div class="evidence-value">68.44<span>Reported F1</span></div>
+  <div class="metric-baseline">vs. <strong>51.61</strong> Alpamayo 1.5</div>
+  <p>Against predicted-trajectory meta-actions; continuous generation.</p>
+</article>
+<article class="evidence-card evidence-selectivity">
+  <div class="evidence-kicker">Table 3 · Selective Consequences</div>
+  <h3>Selective Plan Correction</h3>
+  <div class="evidence-pair">
+    <div class="preserved"><strong>70.4<em>%</em></strong><span>Safe → Preserved</span><i aria-hidden="true"><b style="width:70.4%"></b></i></div>
+    <div class="adverse"><strong>2.2<em>%</em></strong><span>Safe → Unsafe</span><i aria-hidden="true"><b style="width:2.2%"></b></i></div>
+  </div>
+  <p>Among initially safe plans, after correction.<br>Preserved: maximum deviation ≤ 3 m over 6.4 s.</p>
+</article>
+</div>
+<p class="results-footnote">Each measure retains its own evaluation protocol; these are not a combined score.</p>
+</div></section>
+<section class="closing-section container"><div class="closing-line"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true"><p>Grounding should shape<br><strong>what the plan does.</strong></p><a class="button primary" href="assets/groundact.pdf" target="_blank" rel="noopener">Read The Full Paper ↗</a></div></section>
+<section id="citation" class="citation-section"><div class="container"><div class="citation-heading"><h2>BibTeX</h2><button id="copy-citation" class="copy-button">Copy Citation <span aria-hidden="true">⧉</span></button></div><pre><code id="citation-code">@misc{cho2026groundact,
+  title  = {Grounding What Shapes the Plan: Rethinking Groundedness
+            for Physical Intelligence in Autonomous Driving},
+  author = {Minkyoung Cho and Zewei Zhou and Wenhao Ding and Shuhan Tan
+            and Boyi Li and Yuxiao Chen and Yan Wang and Zheng Lian
+            and Min-Hung Chen and Chaowei Xiao and Z. Morley Mao
+            and Boris Ivanovic and Marco Pavone and Yulong Cao},
+  year   = {2026},
+  note   = {Manuscript}
+}</code></pre><p class="citation-note">Draft citation; publication details will be added when available.</p></div></section>
+</main>
+<footer><div class="container footer-content"><a href="#top" class="brand"><img class="brand-mark" src="assets/brand-token.svg" width="44" height="32" alt="" aria-hidden="true">Ground<span>Act</span></a><p>Physical AI · Autonomous Driving</p><span>GroundAct · 2026</span></div></footer>
+<dialog id="figure-dialog" aria-label="Expanded paper figure"><button id="close-dialog" aria-label="Close enlarged figure">×</button><img alt=""><p></p></dialog><div id="status-message" role="status" class="sr-only"></div>
+</body></html>

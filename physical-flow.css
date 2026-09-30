@@ -1,0 +1,52 @@
+.flow-section { padding-top: 32px; padding-bottom: 74px; }
+.flow-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:25px; }
+.flow-heading h2 { font-size:clamp(25px,2.75vw,38px); letter-spacing:-1.3px; line-height:1.15; margin:9px 0 0; color:#151619; }
+.flow-eyebrow { margin:0; font-size:10px; letter-spacing:2px; font-weight:750; color:#62666d; }
+.flow-principles { display:flex; flex-wrap:wrap; align-items:center; gap:5px 9px; margin:0 0 13px; font-size:11px; line-height:1.65; color:#777b83; }
+.flow-principles strong { color:#4b5058; font-weight:600; }
+.flow-principles>span { white-space:nowrap; }
+.flow-schematic { display:flex; align-items:center; gap:8px; flex-shrink:0; font-size:11px; color:#777b83; padding-bottom:4px; }
+.physical-flow { background:#fff; border:1px solid #e2e3e6; border-radius:14px; overflow:hidden; box-shadow:0 12px 40px -26px #15161938; }
+.flow-stage { width:100%; overflow:hidden; }
+.flow-canvas { display:none; width:100%; height:auto; overflow:visible; font-family:inherit; }
+.is-ready .flow-canvas { display:block; }
+.flow-static { display:block; width:100%; }
+.flow-canvas text { font-family:inherit; fill:#151619; }
+.flow-canvas .fc-label { font-size:13px; font-weight:650; }
+.flow-canvas .fc-note { font-size:11px; fill:#777b83; font-weight:450; }
+.flow-canvas .fc-mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+.flow-canvas .fc-rule { stroke:#e2e3e6; stroke-width:1; fill:none; }
+.flow-canvas .fc-wire { stroke:#c5c8cd; stroke-width:1.4; fill:none; }
+.flow-canvas .fc-ref-wire { stroke:#76b900; stroke-width:1.5; stroke-dasharray:3 5; fill:none; }
+.flow-canvas .fc-state-wire { stroke:#151619; stroke-width:1.6; fill:none; }
+.flow-canvas .fc-stored { fill:#76b900; }
+.flow-canvas [data-packet] { pointer-events:none; }
+.flow-canvas .fc-white { fill:#fff; }
+.flow-bottom { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:17px 24px; border-top:1px solid #e2e3e6; background:#fafafa; }
+.flow-caption { display:flex; align-items:center; gap:14px; margin:0; font-size:15px; color:#151619; min-width:0; }
+.flow-caption > span { display:grid; place-items:center; min-width:25px; height:25px; border:1px solid #d8dade; border-radius:6px; font-size:10px; font-family:ui-monospace,monospace; color:#777b83; }
+.flow-caption strong { font-weight:600; letter-spacing:-.2px; }
+.flow-controls { display:none; align-items:center; gap:9px; flex:0 1 300px; }
+.is-ready .flow-controls { display:flex; }
+.flow-controls button { display:grid; place-items:center; width:32px; height:32px; flex-shrink:0; padding:0; border:1px solid #dedfe2; border-radius:50%; background:#fff; color:#151619; cursor:pointer; font-size:12px; }
+.flow-controls .flow-play { color:#fff; background:#151619; border-color:#151619; }
+.flow-controls .flow-replay { font-size:22px; line-height:1; }
+.flow-controls button:hover { border-color:#76b900; }
+.flow-controls button:focus-visible,.flow-controls input:focus-visible { outline:2px solid #76b900; outline-offset:3px; }
+.flow-controls input { width:100%; min-width:50px; height:3px; cursor:pointer; accent-color:#151619; }
+.flow-controls output { min-width:29px; font-size:10px; color:#777b83; font-variant-numeric:tabular-nums; }
+.flow-footnote { margin:0; padding:9px 24px 11px; font-size:10px; line-height:1.5; color:#858991; background:#fafafa; }
+@media(max-width:760px){
+  .flow-section { padding-top:15px; padding-bottom:48px; }
+  .flow-heading { margin-bottom:18px; }
+  .flow-heading h2 { max-width:440px; letter-spacing:-.8px; }
+  .flow-principles { display:block; font-size:10px; margin-bottom:11px; }
+  .flow-principles>span { display:block; }
+  .flow-principles>span[aria-hidden] { display:none; }
+  .flow-schematic { display:none; }
+  .flow-bottom { padding:15px 16px; align-items:stretch; gap:14px; flex-direction:column; }
+  .flow-caption { font-size:14px; gap:10px; }
+  .flow-controls { flex-basis:auto; }
+  .flow-footnote { padding:0 16px 13px; }
+}
+@media(prefers-reduced-motion:reduce){ .physical-flow *{scroll-behavior:auto;} }

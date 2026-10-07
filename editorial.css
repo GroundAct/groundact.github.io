@@ -145,3 +145,6 @@
 .button:disabled { color:#858b91; background:#eef0f2; border-color:#e1e4e7; cursor:default; transform:none; }
 .nav-paper:disabled { color:#959ba1; background:none; border:0; border-left:1px solid var(--line); padding:0 0 0 26px; cursor:default; }
 @media(max-width:680px){ .nav-paper:disabled { padding-left:13px; } }
+
+/* Author homepages retain the compact author layout. */
+.authors a:hover, .authors a:focus-visible { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #76b900; }

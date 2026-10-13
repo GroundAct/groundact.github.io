@@ -592,3 +592,28 @@
 .ga-act-node small { display:block; font-size:9px; line-height:1.35; margin-top:6px; color:#625e56; }
 .ga-act-visual>.ga-state-arrow { font-size:16px; line-height:40px; }
 @media(max-width:680px){ .title-break { display:none; } .hero .paper-title { letter-spacing:-.5px; } .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-lead { font-size:14px; } .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-hook { font-size:16px; } }
+
+/* v4.4.5: balanced editorial hero. */
+.hero { padding:38px 0 34px; }
+.hero .eyebrow { font-size:9px; letter-spacing:2.1px; color:#a9ada6; }
+.hero .hero-wordmark { font-size:56px; letter-spacing:-2.8px; gap:12px; margin-top:20px; line-height:1.1; }
+.hero .hero-brand-mark { width:76px; height:49px; }
+.hero .paper-title { max-width:920px; margin:26px auto 0; }
+.hero .paper-title-main { font-size:clamp(27px,2.8vw,38px); letter-spacing:-1px; line-height:1.2; }
+.hero .paper-title-rest { max-width:720px; margin:12px auto 0; font-size:clamp(20px,1.8vw,25px); font-weight:400; line-height:1.42; letter-spacing:-.35px; color:#c8cbc5; text-wrap:balance; }
+.hero .ga-systems-intro { border-top:0; margin:27px auto 0; padding:0; max-width:700px; }
+.hero .ga-systems-intro::before { content:''; display:block; width:52px; height:2px; margin:0 auto 18px; background:#76b900; opacity:.65; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-lead { font-size:13px; letter-spacing:.1px; color:#aeb4aa; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-hook { font-size:18px; margin-top:6px; font-weight:400; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-tagline { font-size:9px; letter-spacing:.65px; color:#90978c; margin-top:7px; }
+@media(max-width:680px){
+ .hero { padding:29px 0 28px; }
+ .hero .hero-wordmark { font-size:44px; gap:9px; letter-spacing:-2px; margin-top:17px; }
+ .hero .hero-brand-mark { width:54px; height:37px; }
+ .hero .paper-title { margin-top:23px; }
+ .hero .paper-title-main { font-size:27px; line-height:1.25; text-wrap:balance; }
+ .hero .paper-title-rest { font-size:20px; margin-top:11px; }
+ .hero .ga-systems-intro { margin-top:23px; }
+ .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-lead { font-size:12px; }
+ .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-hook { font-size:16px; text-wrap:balance; }
+}

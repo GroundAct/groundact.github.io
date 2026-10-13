@@ -251,7 +251,7 @@
   $('.ga-arch-enlarge',root).addEventListener('click',()=>openSourceImage(image));
   function checkImage(){if(!image.naturalWidth)return;calibrated=Math.abs(image.naturalWidth/image.naturalHeight-1000/562)<.05;const note=$('.ga-arch-load-note',root);note.hidden=calibrated;root.dataset.calibrated=String(calibrated);if(!calibrated){setOriginal(true);story.playButton.disabled=true;note.textContent='Source dimensions changed: original view is shown; the overlay must be recalibrated.'}story.apply()}
   image.addEventListener('load',checkImage);if(image.complete)checkImage();image.addEventListener('error',()=>{const note=$('.ga-arch-load-note',root);note.hidden=false;note.textContent='Original figure unavailable. Use the --source option with your website directory, or open the preview with internet access.'});
-  root.insertAdjacentHTML('beforeend','<p class="ga-arch-note">Original artwork preserved above the old blue invariant strip. The new strip shares the phase grid and playback clock. Animation timing is explanatory, not measured inference latency. Original view restores the complete source image.</p>');
+
  }
  function openSourceImage(image){
   let dialog=$('#ga-original-image-dialog');
@@ -318,7 +318,7 @@
   const switcher=el('div','ga-view-switch',`<button type="button" data-plot-view="radar" aria-pressed="true">Radar</button><button type="button" data-plot-view="bar" aria-pressed="false">Bar</button>`);switcher.setAttribute('role','group');switcher.setAttribute('aria-label','Driving performance chart type');header.append(switcher);
   const root=el('section','ga-motion ga-radar-overview');root.setAttribute('aria-label','Three driving benchmark suites shown together');
   const legendHTML=modelNames.map(name=>{const s=styleMap.get(name);return `<button type="button" data-radar-model="${esc(name)}" aria-pressed="true"><svg viewBox="0 0 30 12" aria-hidden="true"><path d="M1 6 H29" fill="none" stroke="${s.ink}" stroke-width="${name==='GroundAct'?3:1.8}" stroke-dasharray="${s.dash}"/></svg>${esc(name)}</button>`}).join('');
-  root.innerHTML=`<div class="ga-radar-grid"></div><div class="ga-radar-legend" role="group" aria-label="Show or hide benchmark models">${legendHTML}</div><p class="ga-radar-normalization">Each axis is min-max normalized over <strong>all ${modelNames.length} models</strong> in its suite: 0 = lowest performance, 1 = highest performance among the compared models on that metric. Lower-is-better metrics are inverted. Hiding a model never rescales an axis. Shapes are not aggregate scores; areas are not comparable across suites.</p><details class="ga-radar-exact"><summary>Exact reported values &amp; normalization</summary><p class="ga-radar-formula">Higher is better: (x - min) / (max - min). Lower is better: (max - x) / (max - min). Constant axes use 0.5. These normalized coordinates are presentation-only, not additional paper metrics.</p><div class="ga-radar-raw-tables"></div></details>`;
+  root.innerHTML=`<div class="ga-radar-grid"></div><div class="ga-radar-legend" role="group" aria-label="Show or hide benchmark models">${legendHTML}</div><p class="ga-radar-normalization">Each axis is min-max normalized over <strong>all ${modelNames.length} models</strong> in its suite: 0 = lowest performance, 1 = highest performance among the compared models on that metric. Lower-is-better metrics are inverted.</p><details class="ga-radar-exact"><summary>Exact reported values &amp; normalization</summary><p class="ga-radar-formula">Higher is better: (x - min) / (max - min). Lower is better: (max - x) / (max - min). Constant axes use 0.5. These normalized coordinates are presentation-only, not additional paper metrics.</p><div class="ga-radar-raw-tables"></div></details>`;
   panel.before(root);panel.hidden=true;if(tabs)tabs.hidden=true;
   const grid=$('.ga-radar-grid',root),drawers=[];
   function prettyHeader(h,key){
@@ -398,13 +398,13 @@
   const safe=(name,fn)=>{try{fn()}catch(e){errors.push({component:name,message:String(e)});console.error(`[GroundAct motion: ${name}]`,e)}};
   const figs=$$('#overview .motivation-grid > figure');
   safe('transfer-gap',()=>{if(figs[0])gapModule(figs[0])});safe('paired-scenes',()=>{if(figs[1])scenarioModule(figs[1])});
-  safe('token-comparison',()=>{const f=$('#interface .wide-figure');if(f)tokenModule(f)});
+  // The Principle uses the original static figure; no animation is mounted.
   safe('system-role-framing',systemsModule);
   $$('.ga-source-zoom').forEach(b=>b.addEventListener('click',()=>openSourceImage($('img',b))));
   safe('architecture',()=>{const f=$('#method .architecture-figure');if(f)methodModule(f)});
   safe('benchmark-explorer',resultModule);safe('supporting-evidence',evidenceModule);
   const global=el('button','ga-motion-global','<i aria-hidden="true"></i><span>Pause new animations</span>');global.type='button';global.setAttribute('aria-pressed','false');global.addEventListener('click',()=>setQuiet(!quiet));document.body.append(global);
  }
- window.GroundActMotion={version:'4.4.2',stories,errors,pauseAll:()=>setQuiet(true),resumeAll:()=>setQuiet(false),init};
+ window.GroundActMotion={version:'4.4.3',stories,errors,pauseAll:()=>setQuiet(true),resumeAll:()=>setQuiet(false),init};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

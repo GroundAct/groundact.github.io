@@ -575,3 +575,20 @@
 .ga-planner-state .ga-interaction-token, .ga-planner-state .ga-delta-token { font-size:10px; line-height:1.4; padding:9px 6px; text-align:center; min-width:0; }
 .ga-planner-state .ga-interaction-token { color:#9a4d18; border-color:#efd0b9; background:#fff5ec; }
 .ga-planner-state .ga-delta-token { color:#477800; border-color:#cfe0af; background:#f4fae9; }
+
+/* v4.4.2: paper title first; compact state-to-action illustration. */
+.hero .paper-title { max-width:1040px; margin:18px auto 0; line-height:1.23; letter-spacing:-.8px; }
+.paper-title-main { display:block; font-size:clamp(27px,3.1vw,42px); font-weight:650; }
+.paper-title-rest { display:block; margin-top:8px; font-size:clamp(21px,2.25vw,30px); font-weight:500; color:#e0e1df; line-height:1.35; }
+.hero .ga-systems-intro { margin-top:25px; padding-top:17px; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-lead { font-size:16px; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-hook { font-size:19px; letter-spacing:-.3px; }
+.hero .ga-role-framing.ga-system-ribbon-hero .ga-role-tagline { font-size:10px; margin-top:6px; }
+.ga-planner-state.ga-act-visual { display:grid; grid-template-columns:minmax(0,1.1fr) 12px minmax(0,1fr) 12px minmax(0,1fr); gap:2px; align-items:start; width:100%; }
+.ga-act-node { min-width:0; text-align:center; }
+.ga-act-node svg { display:block; height:40px; width:100%; max-width:64px; margin:auto; }
+.ga-act-node .ga-state-memory { padding:7px 5px; gap:5px; height:40px; max-width:100%; }
+.ga-act-node .ga-memory-vector { gap:2px; }
+.ga-act-node small { display:block; font-size:9px; line-height:1.35; margin-top:6px; color:#625e56; }
+.ga-act-visual>.ga-state-arrow { font-size:16px; line-height:40px; }
+@media(max-width:680px){ .title-break { display:none; } .hero .paper-title { letter-spacing:-.5px; } .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-lead { font-size:14px; } .hero .ga-role-framing.ga-system-ribbon-hero .ga-role-hook { font-size:16px; } }

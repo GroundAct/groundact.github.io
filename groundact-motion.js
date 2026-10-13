@@ -390,7 +390,7 @@
    const bars=el('div','ga-mini-bars',`<div class="ga-mini-row ga-ours"><span>Preserved</span><i><b style="width:${safe}%"></b></i><em>${safe}%</em></div><div class="ga-mini-row ga-adverse"><span>Unsafe</span><i><b style="width:${unsafe}%"></b></i><em>${unsafe}%</em></div><div class="ga-mini-axis">Separate rates / same 0&ndash;100% axis</div>`);$('.evidence-pair',third).after(bars);$$('b',bars).forEach(b=>all.push({bar:b,start:3.4}));
    $$('.evidence-pair i',third).forEach(i=>i.hidden=true);
   }
-  new Story(root,[{at:0,title:'Spatial referencing.',text:'Geometry-aware entity selection, on its own evaluation protocol.'},{at:1.7,title:'Reasoning-to-action alignment.',text:'Compare predicted-trajectory meta-actions; do not merge this F1 with the referencing F1.'},{at:3.4,title:'Selective consequences.',text:'Preserved and unsafe rates are separate outcomes, not complementary slices of a two-part pie.'}],6,t=>all.forEach(({bar,start})=>bar.style.transform=`scaleX(${phase(t,start,start+1.3)})`),{label:'Supporting evidence'});
+  new Story(root,[{at:0,title:'Spatial referencing.',text:'Geometry-aware entity selection, on its own evaluation protocol.'},{at:1.7,title:'Reasoning-to-action alignment.',text:'Compare predicted-trajectory meta-actions; do not merge this F1 with the referencing F1.'},{at:3.4,title:'Selective consequences.',text:'Preserved and unsafe rates are separate outcomes, not complementary slices of a two-part pie.'}],6,t=>all.forEach(({bar,start})=>bar.style.transform=`scaleX(${phase(t,start,start+1.3)})`),{label:'Supporting evidence',caption:false});
  }
  const errors=[];
  function init(){

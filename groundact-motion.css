@@ -553,3 +553,25 @@
   #overview .ga-speed-legend { flex-direction: column; gap: 3px; }
   #overview .ga-speed-legend > span:last-child { text-align: left; }
 }
+
+/* v4.4.1: focused contrast and figure-aligned planner labels. */
+#overview .ga-frame { border-color:#dce3eb; box-shadow:0 6px 24px #172b4610; }
+#overview .ga-topline .ga-kicker { color:#35485e; }
+#overview .ga-gap-bar { background:#627b9c; }
+#overview .ga-gap-row.ga-ours .ga-gap-bar { background:#76b900; }
+#overview .ga-gap-row.ga-ours { background:#f2f9e8; border-radius:8px; box-shadow:0 0 0 10px #f2f9e8; }
+#overview .ga-gap-row.ga-ours .ga-gap-label, #overview .ga-gap-row.ga-ours .ga-gap-value { color:#477800; }
+#overview .ga-gap-whisker, #overview .ga-gap-whisker::before, #overview .ga-gap-whisker::after { background:#263b54; }
+#overview .ga-shared-intent { background:#f3f6fa; border:1px solid #e0e7ef; border-radius:8px; padding:12px 10px; }
+#overview .ga-road { stroke:#edf1f5; }
+#overview .ga-road-center { stroke:#c8d2de; }
+#overview [data-lead-path], #overview [data-lead-speed] { stroke:#dd681b; }
+#overview [data-cross-path], #overview [data-cross-speed] { stroke:#287bd1; }
+#overview .ga-scene-titles>div:first-child, #overview .ga-key-lead { color:#b74f0e; }
+#overview .ga-scene-titles>div:last-child, #overview .ga-key-cross { color:#2165ad; }
+#overview .ga-key-ego { color:#202020; }
+.ga-planner-state { gap:6px; font-size:10px; }
+.ga-planner-state-input { font-size:10px; line-height:1.55; text-align:center; }
+.ga-planner-state .ga-interaction-token, .ga-planner-state .ga-delta-token { font-size:10px; line-height:1.4; padding:9px 6px; text-align:center; min-width:0; }
+.ga-planner-state .ga-interaction-token { color:#9a4d18; border-color:#efd0b9; background:#fff5ec; }
+.ga-planner-state .ga-delta-token { color:#477800; border-color:#cfe0af; background:#f4fae9; }
